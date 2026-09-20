@@ -801,7 +801,21 @@ function renderDay(){
     '<div class="slim"><i style="width:'+pct(ks)+'%"></i></div>'+
     '<div class="grid" id="mealGrid">'+cells.join('')+'</div>'+
     (allDone(ks) ? '<div class="cleared"><b>Day '+e.n+' cleared.</b><span>Every step and every plate.</span></div>' : '')+
+    (function(){
+      const pd = sched().find(x=>x.n===e.n-1), nd = sched().find(x=>x.n===e.n+1);
+      const lab = d0 => 'Day '+d0.n+' · '+plan().days[d0.key].name;
+      return '<div class="prevnext">'+
+        '<button class="pnbtn" type="button" id="dPrev"'+(pd?'':' disabled')+'>'+
+          '<span class="pn-l">Previous day</span>'+(pd?lab(pd):'—')+'</button>'+
+        '<button class="pnbtn next" type="button" id="dNext"'+(nd?'':' disabled')+'>'+
+          '<span class="pn-l">Next day</span>'+(nd?lab(nd):'—')+'</button></div>';
+    })()+
     '</div>';
+  const hop = d => { state.day = state.day + d; save(); renderDay(); updateNav(); window.scrollTo(0,0); };
+  const dp = document.getElementById('dPrev'), dn = document.getElementById('dNext');
+  if(dp && !dp.disabled) dp.addEventListener('click', ()=>hop(-1));
+  if(dn && !dn.disabled) dn.addEventListener('click', ()=>hop(1));
+
   document.getElementById('mealGrid').addEventListener('click', ev=>{
     const b = ev.target.closest('.k.meal'); if(!b) return;
     state.slot = (b.dataset.s === 'tonight') ? 'tonight' : Number(b.dataset.s);
@@ -866,10 +880,18 @@ function renderMeal(){
         }).join('') + (s.note ? '<p class="slotnote">'+s.note+'</p>' : ''), allDone(eatKs));
   }
 
-  /* previous / next within the day */
-  const order = t.slots.map((_,i)=>i).concat(['tonight']);
-  const at = order.findIndex(x=>String(x)===String(si));
-  const nameOf = x => x==='tonight' ? (e.n===0 ? 'Get set' : 'Tonight') : t.slots[x].label;
+  /* previous / next — runs straight through the plan, not just this day */
+  const seq = [];
+  sched().forEach(d0=>{
+    plan().days[d0.key].slots.forEach((_,i)=> seq.push({n:d0.n, slot:i}));
+    seq.push({n:d0.n, slot:'tonight'});
+  });
+  const at = seq.findIndex(x=> x.n===e.n && String(x.slot)===String(si));
+  const nameOf = it => {
+    const de = sched().find(x=>x.n===it.n), dt = plan().days[de.key];
+    const nm = it.slot==='tonight' ? (it.n===0 ? 'Get set' : 'Tonight') : dt.slots[it.slot].label;
+    return it.n===e.n ? nm : 'Day '+it.n+' · '+nm;
+  };
 
   document.getElementById('mealBody').innerHTML =
     '<div class="anim"><div class="hd">'+
@@ -878,9 +900,9 @@ function renderMeal(){
     '</div>'+ folds +
     '<div class="prevnext">'+
       '<button class="pnbtn" type="button" id="pnPrev"'+(at<=0?' disabled':'')+'>'+
-        '<span class="pn-l">Previous</span>'+(at>0?nameOf(order[at-1]):'—')+'</button>'+
-      '<button class="pnbtn next" type="button" id="pnNext"'+(at>=order.length-1?' disabled':'')+'>'+
-        '<span class="pn-l">Next</span>'+(at<order.length-1?nameOf(order[at+1]):'—')+'</button>'+
+        '<span class="pn-l">Previous</span>'+(at>0?nameOf(seq[at-1]):'—')+'</button>'+
+      '<button class="pnbtn next" type="button" id="pnNext"'+(at>=seq.length-1?' disabled':'')+'>'+
+        '<span class="pn-l">Next</span>'+(at<seq.length-1?nameOf(seq[at+1]):'—')+'</button>'+
     '</div>'+
     '<button class="resetbtn" id="resetday" type="button">Clear Day '+e.n+'’s ticks</button>'+
     '<div class="foot">Plan by Aayurspandana · Ayur-Aahar-Aarogya. Ticks are saved in this browser only.</div>'+
@@ -918,8 +940,8 @@ function renderMeal(){
   });
 
   const step = d => {
-    const nx = order[at + d];
-    state.slot = nx; state.open = 'prep'; save();
+    const it = seq[at + d]; if(!it) return;
+    state.day = it.n; state.slot = it.slot; state.open = 'prep'; save();
     renderMeal(); updateNav(); window.scrollTo(0,0);
   };
   const pv = document.getElementById('pnPrev'), nx = document.getElementById('pnNext');
