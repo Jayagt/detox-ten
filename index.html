@@ -305,14 +305,13 @@ D.mon = {
   name:'Monday', wd:'MON', type:'gf',
   buy:{
     veg:['Cucumber — 2','Carrot — 1','Cabbage — 1 small','Tomato — 4','Onion — 2','Beans, carrot, beetroot, gobi — 200 g together','Ginger — a thumb','Mint — 1 bunch','Coriander — 1 bunch','Green chilli — 4','Apple — 1'],
-    pantry:['Whole green gram — 1½ cups · soak tonight','Idli rice 1½ cups + urad dal ⅓ cup · soak tonight','Jeera and dhaniya seeds','Chia seeds','Almonds — 4','Groundnuts — 100 g, for the chutney','Coffee powder, green tea'],
+    pantry:['Whole green gram — 1½ cups · soak tonight','Idli rice 1½ cups + urad dal ⅓ cup','Jeera and dhaniya seeds','Chia seeds','Almonds — 4','Groundnuts — 100 g, for the chutney','Coffee powder, green tea'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd — 1 cup for dinner','Curd — 2 tbsp as starter']
   },
   slots:[
     {t:'5:00 am', label:'Detox water', do:WATER_STEPS, eat:WATER_EAT},
     {t:'8:00 am', label:'Breakfast', do:[
       {t:'5:15 am', d:'Drain the green gram soaked last night. Grind it thick with 2 green chillies and a piece of ginger — idli-batter consistency. <b>Do not ferment.</b> This one grind is all five pesarattu for today.'},
-      {t:'6:00 am', d:'Grind the soaked idli rice and urad dal together. Leave it somewhere warm to ferment for <b>8 hours only</b> — it will have risen by about 2 pm. <b>Then refrigerate it.</b> Left out longer it over-ferments and the idlis turn sour.'},
       {t:'6:30 am', d:'Groundnut chutney: dry-roast 100 g groundnuts, rub off the skins, then grind with 2 dry red chillies, a small piece of tamarind, garlic and salt. Loosen with water. <b>No jaggery</b> — the plan rules it out. Keeps two days in the fridge.'},
       {t:'7:45 am', d:'Blend 1 cucumber, ½ carrot, ginger and mint with water to 250 ml. <b>Do not filter</b> — if it is too thick, add more water.'},
       {t:'7:55 am', d:'Spread one pesarattu on a hot tawa. No oil. Cook both sides.'}
@@ -322,6 +321,7 @@ D.mon = {
       {t:'9:40 am', d:'Stir 1 tsp chia into 250 ml of water and leave it 20 minutes to gel. Count out 4 almonds.'}
     ], eat:[{n:'Chia water', q:'1 glass'},{n:'Almonds', q:'4'}]},
     {t:'12:00 pm', label:'Lunch', do:[
+      {t:'12:00 pm', d:'Put 1½ cups idli rice + ⅓ cup urad dal in to soak — <b>8 hours</b>. You grind it before bed tonight, and tomorrow\u2019s idli comes from it.'},
       {t:'10:30 am', d:'Cabbage palya: shred the cabbage, temper mustard and curry leaves, cook it dry with turmeric and salt.'},
       {t:'11:00 am', d:'Tomato tili saru: boil 4 tomatoes with tamarind, jeera and a spoon of ground sesame, thin it into a rasam.'},
       {t:'11:45 am', d:'Chop cucumber and onion into a cup of curd for the raita.'},
@@ -340,7 +340,7 @@ D.mon = {
     {t:'9:00 pm', label:'Bedtime', do:CHIA_NIGHT, eat:[{n:'Chia water', q:'1 glass'}]}
   ],
   night:{head:'Tuesday — a grain day', tasks:[
-    {t:'7:00 pm', d:'The idli batter should have risen by 2 pm and gone into the fridge. If it never rose, keep it somewhere warmer next time — but eight hours is the limit, not a target to beat.'},
+    {t:'8:00 pm', d:'<b>Grind the idli rice and urad dal</b> you put in at noon. Leave the batter somewhere warm overnight to ferment — about <b>8 hours</b>. It should have risen by morning. <b>Do not refrigerate it</b>; use it fresh at breakfast.'},
     {t:'7:30 pm', d:'<b>Set curd.</b> Boil 1 litre of milk, cool it to lukewarm, stir in 2 tbsp of curd, keep it covered overnight.'},
     {t:'8:00 pm', d:'Wash and set aside for the morning juice: 1 apple, ½ beetroot, ½ carrot.'},
     {t:'8:00 pm', d:'Chop 1 cauliflower — half for the lunch sabji with peas, half for dinner.'},
@@ -359,7 +359,7 @@ D.tue = {
     {t:'5:00 am', label:'Detox water', do:WATER_STEPS, eat:WATER_EAT},
     {t:'8:00 am', label:'Breakfast', do:[
       {t:'6:30 am', d:'Sambar: pressure-cook ½ cup toor dal, add mixed vegetables, tamarind and sambar powder. <b>Make three cups</b> — one now, one for lunch, one chilled for Thursday.'},
-      {t:'7:30 am', d:'Steam 3 idlis from the batter you fermented and chilled yesterday. Put the rest straight back in the fridge — that is Thursday’s dosa.'},
+      {t:'7:30 am', d:'Steam 3 idlis from the batter that fermented overnight. <b>Use it fresh today</b> — any spare becomes dosas at lunch. It does not go in the fridge.'},
       {t:'7:45 am', d:'Blend ½ apple, ½ beetroot and ½ carrot to 250 ml. Do not filter.'}
     ], eat:[{n:'Apple, beetroot & carrot smoothie', q:'250 ml'},{n:'Idli', q:'3'},{n:'Sambar', q:'1 cup'}]},
     {t:'10:00 am', label:'Mid-morning', do:[
@@ -392,7 +392,7 @@ D.wed = {
   name:'Wednesday', wd:'WED', type:'gf',
   buy:{
     veg:['Cucumber — 3','Methi leaves — 2 bunches','Tomato — 3','Onion — 2','Mixed vegetables for curry — 250 g','Ginger, mint','Lemon — 2','Coriander, green chilli'],
-    pantry:['Split moong dal — 1 cup · soak tonight','Whole green gram — 1 cup · soak tonight','Toor dal — ½ cup','Roasted chana — 15 g','Almonds — 6','Chia seeds'],
+    pantry:['Split moong dal — 1 cup · soak tonight','Whole green gram — 1 cup · soak tonight','Idli rice 1½ cups + urad dal ⅓ cup','Toor dal — ½ cup','Roasted chana — 15 g','Almonds — 6','Chia seeds'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd from last night — raita and buttermilk']
   },
   slots:[
@@ -408,6 +408,7 @@ D.wed = {
       {t:'9:40 am', d:'Chia in water with a squeeze of lemon, left 20 minutes. Six almonds.'}
     ], eat:[{n:'Chia lemon water', q:'1 glass'},{n:'Almonds', q:'6'}]},
     {t:'12:00 pm', label:'Lunch', do:[
+      {t:'12:00 pm', d:'Put 1½ cups idli rice + ⅓ cup urad dal in to soak — <b>8 hours</b>, for tomorrow\u2019s dosas. You grind it before bed. <i>(Not needed on Day 10 — nothing follows it.)</i>'},
       {t:'11:30 am', d:'A bowl of salad or a vegetable curry — 250 g.'},
       {t:'11:45 am', d:'Two more dose from the morning moong batter.'},
       {t:'11:55 am', d:'Whisk buttermilk from the curd.'}
@@ -423,7 +424,7 @@ D.wed = {
   night:{head:'Thursday — a grain day', tasks:[
     {t:'⚑ Now', d:'<b>Set an alarm for 6 am: soak 1 cup whole moong for sprouts.</b> Saturday’s breakfast needs them started 48 hours ahead. This is the one thing in the plan that cannot be caught up.', flag:true},
     {t:'7:00 pm', d:'Soak ¾ cup brown rice overnight — it cooks softer and faster.'},
-    {t:'8:00 pm', d:'Move Monday’s idli–dosa batter from the fridge to the counter so it is at room temperature for morning dosas.'},
+    {t:'8:00 pm', d:'<b>Grind the idli rice and urad dal</b> you put in at noon. Leave it somewhere warm overnight — about <b>8 hours</b>. Tomorrow’s dosas come from it fresh, <b>not from the fridge</b>.'},
     {t:'8:00 pm', d:'Take the reserved Thursday sambar out to thaw.'},
     {t:'8:30 pm', d:'Set curd.'},
     {t:'Keep out', d:'1 orange, roasted chana 25 g or makhana 30 g, upma rava.'}
@@ -442,7 +443,7 @@ D.thu = {
       {t:'⚑ 6:00 am', d:'<b>Rinse 1 cup of whole moong and cover it with water.</b> These are Saturday’s sprouts. Started any later, they will not be ready.', flag:true}
     ]), eat:WATER_EAT},
     {t:'8:00 am', label:'Breakfast', do:[
-      {t:'7:00 am', d:'Two dosas from Monday’s batter, which has been on the counter overnight. No oil.'},
+      {t:'7:00 am', d:'Two dosas from the batter that fermented overnight. No oil.'},
       {t:'7:10 am', d:'Warm the thawed sambar.'},
       {t:'7:15 am', d:'Cook the soaked brown rice for lunch.'},
       {t:'7:30 am', d:'Carrot and beans palya — one batch, half for lunch and half for dinner.'},
@@ -577,7 +578,6 @@ D.sun = {
   ],
   night:{head:'Monday — week two begins', tasks:[
     {t:'⚑ 8:00 pm', d:'<b>Soak 1½ cups whole green gram.</b> Monday needs about five pesarattu across the day — the biggest soak of the plan.', flag:true},
-    {t:'8:00 pm', d:'Soak 1½ cups idli rice + ⅓ cup urad dal — <b>8 hours</b>. Grind it tomorrow morning and ferment it <b>8 hours only</b>, then chill it.'},
     {t:'8:30 pm', d:'Set curd.'},
     {t:'Top-up shop', d:'6 cucumbers, 500 g carrot, 2 beetroot, 1 cabbage, 2 cauliflower, 250 g peas, methi, tomatoes, 3 apples, 1 guava, paneer, 3 L milk.'}
   ], foot:'The same Monday to Wednesday rotation runs again. Three days to the finish.'}
@@ -588,7 +588,6 @@ D.prep = {
   name:'Sunday', wd:'SUN', type:'prep', slots:[],
   night:{head:'Monday — Day 1', tasks:[
     {t:'⚑ 8:00 pm', d:'<b>Soak 1½ cups whole green gram.</b> Monday needs about five pesarattu across the day. Eight hours minimum — this is the one thing that must happen tonight.', flag:true},
-    {t:'8:00 pm', d:'Soak 1½ cups idli rice + ⅓ cup urad dal — <b>8 hours</b>. Grind it tomorrow morning and ferment it <b>8 hours only</b>, then chill it. Tuesday\u2019s idli.'},
     {t:'8:30 pm', d:'<b>Set curd.</b> Boil 1 litre of milk, cool it to lukewarm, stir in 2 tbsp of curd and keep it covered overnight.'},
     {t:'Tonight', d:'Wash the cucumbers, carrot and cabbage. Put the apple where you will see it at 4 pm tomorrow.'}
   ], foot:'Grind the green gram at 5:15 tomorrow morning — thick, no fermenting.'}
