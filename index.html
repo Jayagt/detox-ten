@@ -1,3 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A ten-day detox plan you can work through day by day: every meal timed, and every soak set up the night before.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F2F5EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111510" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://jayagt.github.io/detox-ten/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Detox Ten">
+<meta property="og:url" content="https://jayagt.github.io/detox-ten/">
+<meta property="og:title" content="Ten days, grain by grain">
+<meta property="og:description" content="A ten-day detox plan you can work through day by day: every meal timed, and every soak set up the night before.">
+<meta property="og:image" content="https://jayagt.github.io/detox-ten/share-card.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ten day detox plan — a row of numbered day keys, Sunday through to day ten.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ten days, grain by grain">
+<meta name="twitter:description" content="A ten-day detox plan you can work through day by day: every meal timed, and every soak set up the night before.">
+<meta name="twitter:image" content="https://jayagt.github.io/detox-ten/share-card.png">
 <title>Detox Ten</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Karla:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
@@ -55,7 +80,8 @@
   /* ---------- screen shell: levels 1–3 fit the viewport ---------- */
   .screen{display:none; flex-direction:column; min-height:100vh; min-height:100svh}
   .screen[data-on="1"]{display:flex}
-  .pad{width:100%; max-width:1000px; margin:0 auto; padding-inline:20px}
+  .pad{width:100%; max-width:1000px; margin:0 auto;
+       padding-inline:max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px))}
   /* the meal screen is reading, not scanning — keep its measure short */
   #mealBody{max-width:800px}
   .fill{flex:1; display:flex; flex-direction:column; justify-content:center; padding-block:14px 22px}
@@ -65,7 +91,8 @@
 
   /* ---------- nav bar ---------- */
   .nav{position:sticky; top:env(safe-area-inset-top, 0px); z-index:20; background:var(--bg); border-bottom:1px solid var(--line)}
-  .nav-in{width:100%; max-width:1000px; margin:0 auto; padding:9px 18px; display:flex; align-items:center; gap:11px}
+  .nav-in{width:100%; max-width:1000px; margin:0 auto;
+          padding:9px max(18px, env(safe-area-inset-right, 0px)) 9px max(18px, env(safe-area-inset-left, 0px)); display:flex; align-items:center; gap:11px}
   .back{display:flex; align-items:center; gap:6px; font-size:15px; font-weight:700; color:var(--ink-2);
     border:1px solid var(--line); background:var(--surface); border-radius:999px; padding:6px 13px 6px 9px; flex:0 0 auto}
   .back:hover{border-color:var(--line-strong); color:var(--ink)}
@@ -194,7 +221,7 @@
   .legend i{width:12px; height:5px; border-radius:3px; background:var(--green); display:block}
   .legend i.g{background:var(--ochre)}
   .legend i.p{background:var(--slate)}
-  .foot{border-top:1px solid var(--line); margin-top:30px; padding-block:16px 28px; color:var(--ink-3); font-size:13px}
+  .foot{border-top:1px solid var(--line); margin-top:30px; padding-block:16px calc(28px + env(safe-area-inset-bottom, 0px)); color:var(--ink-3); font-size:13px}
 
   .toasts{position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom, 0px)); z-index:60; display:flex; flex-direction:column; gap:8px; align-items:flex-end; pointer-events:none}
   .toast{background:var(--green); color:var(--bg); padding:11px 19px; border-radius:999px; font-weight:700; font-size:15.5px; animation:rise .3s cubic-bezier(.2,1.3,.4,1)}
@@ -241,7 +268,8 @@
   }
   @media (prefers-reduced-motion:reduce){ *{animation:none !important; transition:none !important} }
 </style>
-
+</head>
+<body>
 <nav class="nav" id="nav">
   <div class="nav-in">
     <button class="back" id="back" type="button">
@@ -970,3 +998,6 @@ if(state.view === 'meal'){
 if(!VIEWS.includes(state.view)) state.view = 'plans';
 go(state.view);
 </script>
+
+</body>
+</html>
