@@ -1,3 +1,4 @@
 # the original plan sheet holds personal and clinical details — never publish it
 *.pdf
 .DS_Store
+.git-backup/
