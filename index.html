@@ -321,8 +321,7 @@ D.mon = {
       {t:'9:40 am', d:'Stir 1 tsp chia into 250 ml of water and leave it 20 minutes to gel. Count out 4 almonds.'}
     ], eat:[{n:'Chia water', q:'1 glass'},{n:'Almonds', q:'4'}]},
     {t:'12:00 pm', label:'Lunch', do:[
-      {t:'12:00 pm', d:'Put 1½ cups idli rice + ⅓ cup urad dal in to soak — <b>8 hours</b>. You grind it before bed tonight, and tomorrow\u2019s idli comes from it.'},
-      {t:'10:30 am', d:'Cabbage palya: shred the cabbage, temper mustard and curry leaves, cook it dry with turmeric and salt.'},
+            {t:'10:30 am', d:'Cabbage palya: shred the cabbage, temper mustard and curry leaves, cook it dry with turmeric and salt.'},
       {t:'11:00 am', d:'Tomato tili saru: boil 4 tomatoes with tamarind, jeera and a spoon of ground sesame, thin it into a rasam.'},
       {t:'11:45 am', d:'Chop cucumber and onion into a cup of curd for the raita.'},
       {t:'11:55 am', d:'Two small pesarattu from the morning batter.'}
@@ -331,7 +330,8 @@ D.mon = {
       {t:'2:00 pm', d:'Steep green tea two minutes, or a black coffee. Nothing added. This is the last caffeine of the day.'}
     ], eat:[{n:'Green tea or black coffee', q:'1 cup'}]},
     {t:'4:00 pm', label:'Fruit', do:[
-      {t:'4:00 pm', d:'Wash and cut one apple. Eat it on its own — fruit is never taken alongside a meal.'}
+      {t:'4:00 pm', d:'Wash and cut one apple. Eat it on its own — fruit is never taken alongside a meal.'},
+        {t:'4:00 pm', d:'Put 1½ cups idli rice + ⅓ cup urad dal in to soak — <b>4 hours</b>. You grind it at 8 tonight, and tomorrow\u2019s idli comes from it.'}
     ], eat:[{n:'Apple', q:'1'}]},
     {t:'6:00 pm', label:'Dinner', do:[
       {t:'5:30 pm', d:'Steam 200 g of beans, carrot, beetroot and gobi for 8 minutes — or simmer them into a clear soup.'},
@@ -340,7 +340,7 @@ D.mon = {
     {t:'9:00 pm', label:'Bedtime', do:CHIA_NIGHT, eat:[{n:'Chia water', q:'1 glass'}]}
   ],
   night:{head:'Tuesday — a grain day', tasks:[
-    {t:'8:00 pm', d:'<b>Grind the idli rice and urad dal</b> you put in at noon. Leave the batter somewhere warm overnight to ferment — about <b>8 hours</b>. It should have risen by morning. <b>Do not refrigerate it</b>; use it fresh at breakfast.'},
+    {t:'8:00 pm', d:'<b>Grind the idli rice and urad dal</b> you put in at 4 pm. Leave the batter somewhere warm overnight to ferment — about <b>8 hours</b>. It should have risen by morning. <b>Do not refrigerate it</b>; use it fresh at breakfast.'},
     {t:'7:30 pm', d:'<b>Set curd.</b> Boil 1 litre of milk, cool it to lukewarm, stir in 2 tbsp of curd, keep it covered overnight.'},
     {t:'8:00 pm', d:'Wash and set aside for the morning juice: 1 apple, ½ beetroot, ½ carrot.'},
     {t:'8:00 pm', d:'Chop 1 cauliflower — half for the lunch sabji with peas, half for dinner.'},
@@ -408,13 +408,13 @@ D.wed = {
       {t:'9:40 am', d:'Chia in water with a squeeze of lemon, left 20 minutes. Six almonds.'}
     ], eat:[{n:'Chia lemon water', q:'1 glass'},{n:'Almonds', q:'6'}]},
     {t:'12:00 pm', label:'Lunch', do:[
-      {t:'12:00 pm', d:'Put 1½ cups idli rice + ⅓ cup urad dal in to soak — <b>8 hours</b>, for tomorrow\u2019s dosas. You grind it before bed. <i>(Not needed on Day 10 — nothing follows it.)</i>'},
-      {t:'11:30 am', d:'A bowl of salad or a vegetable curry — 250 g.'},
+            {t:'11:30 am', d:'A bowl of salad or a vegetable curry — 250 g.'},
       {t:'11:45 am', d:'Two more dose from the morning moong batter.'},
       {t:'11:55 am', d:'Whisk buttermilk from the curd.'}
     ], eat:[{n:'Salad or vegetable curry', q:'250 g'},{n:'Moong dal dosa', q:'2'},{n:'Methi dal', q:'1 cup · 200 g'},{n:'Buttermilk', q:'1 glass'}]},
     {t:'3:00 pm', label:'Tea', do:[{t:'3:00 pm', d:'150 ml only. Last caffeine of the day.'}], eat:[{n:'Herbal tea / green tea / black coffee', q:'150 ml'}]},
-    {t:'4:00 pm', label:'Snack', do:[{t:'4:00 pm', d:'Weigh 15 g of roasted chana. On the scale, not by the handful.'}], eat:[{n:'Roasted chana', q:'15 g'}]},
+    {t:'4:00 pm', label:'Snack', do:[{t:'4:00 pm', d:'Weigh 15 g of roasted chana. On the scale, not by the handful.'},
+      {t:'4:00 pm', d:'Put 1½ cups idli rice + ⅓ cup urad dal in to soak — <b>4 hours</b>, for tomorrow\u2019s dosas. You grind it at 8 tonight. <i>(Not needed on Day 10 — nothing follows it.)</i>'}], eat:[{n:'Roasted chana', q:'15 g'}]},
     {t:'6:00 pm', label:'Dinner', do:[
       {t:'5:45 pm', d:'One pesarattu from the batter in the fridge.'},
       {t:'5:50 pm', d:'Grate cucumber into a cup of curd for the raita.'}
@@ -424,7 +424,7 @@ D.wed = {
   night:{head:'Thursday — a grain day', tasks:[
     {t:'⚑ Now', d:'<b>Set an alarm for 6 am: soak 1 cup whole moong for sprouts.</b> Saturday’s breakfast needs them started 48 hours ahead. This is the one thing in the plan that cannot be caught up.', flag:true},
     {t:'7:00 pm', d:'Soak ¾ cup brown rice overnight — it cooks softer and faster.'},
-    {t:'8:00 pm', d:'<b>Grind the idli rice and urad dal</b> you put in at noon. Leave it somewhere warm overnight — about <b>8 hours</b>. Tomorrow’s dosas come from it fresh, <b>not from the fridge</b>.'},
+    {t:'8:00 pm', d:'<b>Grind the idli rice and urad dal</b> you put in at 4 pm. Leave it somewhere warm overnight — about <b>8 hours</b>. Tomorrow’s dosas come from it fresh, <b>not from the fridge</b>.'},
     {t:'8:00 pm', d:'Take the reserved Thursday sambar out to thaw.'},
     {t:'8:30 pm', d:'Set curd.'},
     {t:'Keep out', d:'1 orange, roasted chana 25 g or makhana 30 g, upma rava.'}
