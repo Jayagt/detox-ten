@@ -128,7 +128,7 @@
   .k:active{transform:translateY(2px); box-shadow:0 1px 0 var(--line-strong)}
   .k .band{position:absolute; inset:0 0 auto 0; height:5px; background:var(--green)}
   .k[data-type="g"] .band{background:var(--ochre)}
-  .k[data-type="p"] .band{background:var(--slate)}
+  .k[data-type="prep"] .band{background:var(--slate)}
   .kind.p{background:var(--slate-soft); color:var(--slate)}
   .k[data-done="1"]{background:var(--green-soft); border-color:var(--green)}
   .k .tick{position:absolute; top:12px; right:12px; width:25px; height:25px; border-radius:50%;
@@ -757,7 +757,7 @@ function renderDays(){
     '<div class="grid" id="dayGrid">'+
       sched().map(e=>{
         const t = tpl(e), ks = dayKeys(e);
-        return '<button class="k day" type="button" data-n="'+e.n+'" data-type="'+(e.n===0?'p':t.type.charAt(0))+'" data-done="'+(allDone(ks)?'1':'0')+'">'+
+        return '<button class="k day" type="button" data-n="'+e.n+'" data-type="'+(e.n===0?'prep':t.type)+'" data-done="'+(allDone(ks)?'1':'0')+'">'+
           '<span class="band"></span><span class="tick" style="--p:'+pct(ks)+'"></span>'+
           '<span class="d-lab">'+(e.n===0?'START':'DAY')+'</span><span class="d-n">'+e.n+'</span>'+
           '<span class="d-wd">'+t.wd+'</span><span class="d-dt">'+e.date+'</span>'+
