@@ -65,6 +65,7 @@
   }
 
   *{box-sizing:border-box}
+  [hidden]{display:none !important}   /* author rules must not beat the hidden attribute */
   html,body{height:100%}
   body{margin:0; background:var(--bg); color:var(--ink);
     font-family:"Karla","Helvetica Neue",Arial,sans-serif; font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased}
@@ -304,14 +305,14 @@ D.mon = {
   name:'Monday', wd:'MON', type:'gf',
   buy:{
     veg:['Cucumber — 2','Carrot — 1','Cabbage — 1 small','Tomato — 4','Onion — 2','Beans, carrot, beetroot, gobi — 200 g together','Ginger — a thumb','Mint — 1 bunch','Coriander — 1 bunch','Green chilli — 4','Apple — 1'],
-    pantry:['Whole green gram — 1½ cups (soaked last night)','Idli rice 1½ cups + urad dal ⅓ cup (soaked last night)','Jeera and dhaniya seeds','Chia seeds','Almonds — 4','Coconut — ½, for chutney','Coffee powder, green tea'],
+    pantry:['Whole green gram — 1½ cups · soak tonight','Idli rice 1½ cups + urad dal ⅓ cup · soak tonight','Jeera and dhaniya seeds','Chia seeds','Almonds — 4','Coconut — ½, for chutney','Coffee powder, green tea'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd — 1 cup for dinner','Curd — 2 tbsp as starter']
   },
   slots:[
     {t:'5:00 am', label:'Detox water', do:WATER_STEPS, eat:WATER_EAT},
     {t:'8:00 am', label:'Breakfast', do:[
       {t:'5:15 am', d:'Drain the green gram soaked last night. Grind it thick with 2 green chillies and a piece of ginger — idli-batter consistency. <b>Do not ferment.</b> This one grind is all five pesarattu for today.'},
-      {t:'6:00 am', d:'Grind the soaked idli rice and urad dal together and leave the batter somewhere warm to ferment. You need it tomorrow morning.'},
+      {t:'6:00 am', d:'Grind the soaked idli rice and urad dal together. Leave it somewhere warm to ferment for <b>8 hours only</b> — it will have risen by about 2 pm. <b>Then refrigerate it.</b> Left out longer it over-ferments and the idlis turn sour.'},
       {t:'6:30 am', d:'Chutney: grind ½ coconut with coriander, 2 green chillies and salt. It keeps two days.'},
       {t:'7:45 am', d:'Blend 1 cucumber, ½ carrot, ginger and mint with water to 250 ml. <b>Do not filter</b> — if it is too thick, add more water.'},
       {t:'7:55 am', d:'Spread one pesarattu on a hot tawa. No oil. Cook both sides.'}
@@ -339,7 +340,7 @@ D.mon = {
     {t:'9:00 pm', label:'Bedtime', do:CHIA_NIGHT, eat:[{n:'Chia water', q:'1 glass'}]}
   ],
   night:{head:'Tuesday — a grain day', tasks:[
-    {t:'7:00 pm', d:'Check the idli batter has risen. If it hasn’t, leave it in the oven with the light on overnight.'},
+    {t:'7:00 pm', d:'The idli batter should have risen by 2 pm and gone into the fridge. If it never rose, keep it somewhere warmer next time — but eight hours is the limit, not a target to beat.'},
     {t:'7:30 pm', d:'<b>Set curd.</b> Boil 1 litre of milk, cool it to lukewarm, stir in 2 tbsp of curd, keep it covered overnight.'},
     {t:'8:00 pm', d:'Wash and set aside for the morning juice: 1 apple, ½ beetroot, ½ carrot.'},
     {t:'8:00 pm', d:'Chop 1 cauliflower — half for the lunch sabji with peas, half for dinner.'},
@@ -358,7 +359,7 @@ D.tue = {
     {t:'5:00 am', label:'Detox water', do:WATER_STEPS, eat:WATER_EAT},
     {t:'8:00 am', label:'Breakfast', do:[
       {t:'6:30 am', d:'Sambar: pressure-cook ½ cup toor dal, add mixed vegetables, tamarind and sambar powder. <b>Make three cups</b> — one now, one for lunch, one chilled for Thursday.'},
-      {t:'7:30 am', d:'Steam 3 idlis from yesterday’s fermented batter. Put the rest of the batter straight into the fridge in a covered box — that is Thursday’s dosa.'},
+      {t:'7:30 am', d:'Steam 3 idlis from the batter you fermented and chilled yesterday. Put the rest straight back in the fridge — that is Thursday’s dosa.'},
       {t:'7:45 am', d:'Blend ½ apple, ½ beetroot and ½ carrot to 250 ml. Do not filter.'}
     ], eat:[{n:'Apple, beetroot & carrot smoothie', q:'250 ml'},{n:'Idli', q:'3'},{n:'Sambar', q:'1 cup'}]},
     {t:'10:00 am', label:'Mid-morning', do:[
@@ -391,7 +392,7 @@ D.wed = {
   name:'Wednesday', wd:'WED', type:'gf',
   buy:{
     veg:['Cucumber — 3','Methi leaves — 2 bunches','Tomato — 3','Onion — 2','Mixed vegetables for curry — 250 g','Ginger, mint','Lemon — 2','Coriander, green chilli'],
-    pantry:['Split moong dal — 1 cup (soaked last night)','Whole green gram — 1 cup (soaked last night)','Toor dal — ½ cup','Roasted chana — 15 g','Almonds — 6','Chia seeds'],
+    pantry:['Split moong dal — 1 cup · soak tonight','Whole green gram — 1 cup · soak tonight','Toor dal — ½ cup','Roasted chana — 15 g','Almonds — 6','Chia seeds'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd from last night — raita and buttermilk']
   },
   slots:[
@@ -433,7 +434,7 @@ D.thu = {
   name:'Thursday', wd:'THU', type:'g',
   buy:{
     veg:['Carrot — 3','Apple — 1','Cucumber — 2','Beans — 250 g','Orange — 1','Salad vegetables — 250 g','Green peas — 100 g','Tomato — 3','Onion — 2'],
-    pantry:['Whole moong — 1 cup, for sprouting','Brown rice — ¾ cup (soaked last night)','Upma rava — ½ cup','Roasted chana 25 g or makhana 30 g','Toor dal, sambar powder','Chia seeds — 1 tbsp'],
+    pantry:['Whole moong — 1 cup, for sprouting','Brown rice — ¾ cup · soak tonight','Upma rava — ½ cup','Roasted chana 25 g or makhana 30 g','Toor dal, sambar powder','Chia seeds — 1 tbsp'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd from last night — buttermilk and dinner']
   },
   slots:[
@@ -473,7 +474,7 @@ D.fri = {
   name:'Friday', wd:'FRI', type:'gf',
   buy:{
     veg:['Carrot — 2','Cucumber — 3','Beetroot — 1','Tondekai / ivy gourd — 250 g','Mixed vegetables for sambar — 200 g','Tomato — 3','Onion — 2','Lemon — 2','Apple — 1','Coriander'],
-    pantry:['Split moong dal — 1 cup (soaked last night)','Toor dal — ½ cup','Roasted chana — 25 g','Almonds — 6','Chia seeds','Coconut for chutney'],
+    pantry:['Split moong dal — 1 cup · soak tonight','Toor dal — ½ cup','Roasted chana — 25 g','Almonds — 6','Chia seeds','Coconut for chutney'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd from last night — lunch katori']
   },
   slots:[
@@ -508,7 +509,7 @@ D.sat = {
   name:'Saturday', wd:'SAT', type:'g',
   buy:{
     veg:['Beetroot — 1','Carrot — 3','Cucumber — 1','Broccoli — 1','Beans — 200 g','Papaya — 1 small','Mixed vegetables for sambar — no potato','Tomato — 3','Onion — 2','Curry leaves, lemon'],
-    pantry:['Thick poha / avalakki — 1 cup','Rajmudi rice — ¾ cup (soaked last night)','Rice + moong dal for pongal (soaked last night)','Moong dal — 2 tbsp for kosumbari','Almonds — 6','Chia seeds','Pepper and jeera for the pongal'],
+    pantry:['Thick poha / avalakki — 1 cup','Rajmudi rice — ¾ cup · soak tonight','Rice + moong dal for pongal · soak tonight','Moong dal — 2 tbsp for kosumbari','Almonds — 6','Chia seeds','Pepper and jeera for the pongal'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd from last night — lunch and the raita']
   },
   slots:[
@@ -548,7 +549,7 @@ D.sun = {
   name:'Sunday', wd:'SUN', type:'gf',
   buy:{
     veg:['Cucumber — 3','Carrot — 2','Beetroot — 1','Drumstick — 3','Pumpkin — 250 g','Tomato — 3','Onion — 3','Mint, coriander, ginger','Lemon — 2','Apple — 1'],
-    pantry:['Adai mix — chana, toor, moong dal + a little urad (soaked last night)','Whole green gram — 1 cup (soaked last night)','Red chillies, jeera, dhaniya','Almonds — 4','Chia seeds'],
+    pantry:['Adai mix — chana, toor, moong dal + a little urad · soak tonight','Whole green gram — 1 cup · soak tonight','Red chillies, jeera, dhaniya','Almonds — 4','Chia seeds'],
     dairy:['Paneer — 75 g','Curd from last night — lunch katori','Milk — 1 L, to set tonight’s curd']
   },
   slots:[
@@ -576,24 +577,18 @@ D.sun = {
   ],
   night:{head:'Monday — week two begins', tasks:[
     {t:'⚑ 8:00 pm', d:'<b>Soak 1½ cups whole green gram.</b> Monday needs about five pesarattu across the day — the biggest soak of the plan.', flag:true},
-    {t:'8:00 pm', d:'Soak 1½ cups idli rice + ⅓ cup urad dal. You grind it tomorrow morning and ferment it for Tuesday.'},
+    {t:'8:00 pm', d:'Soak 1½ cups idli rice + ⅓ cup urad dal — <b>8 hours</b>. Grind it tomorrow morning and ferment it <b>8 hours only</b>, then chill it.'},
     {t:'8:30 pm', d:'Set curd.'},
     {t:'Top-up shop', d:'6 cucumbers, 500 g carrot, 2 beetroot, 1 cabbage, 2 cauliflower, 250 g peas, methi, tomatoes, 3 apples, 1 guava, paneer, 3 L milk.'}
   ], foot:'The same Monday to Wednesday rotation runs again. Three days to the finish.'}
 };
 
-/* ---- Day 0. The plan cannot start at Monday 5 am without this. ---- */
-const BIG_SHOP = {
-  veg:['Cucumber — 6','Carrot — 750 g','Beetroot — 3','Tomato — 1 kg','Onion — 1 kg','Cabbage — 1 small','Cauliflower — 2 medium','Green peas — 250 g','Beans — 500 g','Methi leaves — 2 bunches','Mint — 2 bunches','Coriander — 3 bunches','Ginger — 150 g','Green chilli — 100 g','Lemon — 6','Apple — 3','Guava — 1'],
-  pantry:['Whole green gram / pesalu — 1 kg','Split moong dal — 1 kg','Toor dal — 1 kg','Chana dal — 500 g','Urad dal — 500 g','Idli rice — 1 kg','Rajmudi rice — 1 kg','Brown rice — 500 g','Thick poha / avalakki — 250 g','Upma rava — 250 g','Atta — small pack','Chia seeds — 250 g','Almonds — 250 g','Roasted chana — 250 g','Makhana — 100 g','Jeera — 200 g','Dhaniya seeds — 200 g','Sambar powder, turmeric, mustard, hing, dry red chilli','Green tea and herbal tea','Coffee powder','Coconut — 2, for chutney'],
-  dairy:['Milk — 3 L','Paneer — 100 g','Curd — 2 tbsp as starter culture']
-};
-
+/* ---- Day 0 exists so the Sunday shop and soak have somewhere to live. ---- */
 D.prep = {
-  name:'Sunday', wd:'SUN', type:'prep', slots:[], buy:BIG_SHOP,
+  name:'Sunday', wd:'SUN', type:'prep', slots:[],
   night:{head:'Monday — Day 1', tasks:[
     {t:'⚑ 8:00 pm', d:'<b>Soak 1½ cups whole green gram.</b> Monday needs about five pesarattu across the day. Eight hours minimum — this is the one thing that must happen tonight.', flag:true},
-    {t:'8:00 pm', d:'Soak 1½ cups idli rice + ⅓ cup urad dal. You grind it tomorrow morning and ferment it through the day for Tuesday\u2019s idli.'},
+    {t:'8:00 pm', d:'Soak 1½ cups idli rice + ⅓ cup urad dal — <b>8 hours</b>. Grind it tomorrow morning and ferment it <b>8 hours only</b>, then chill it. Tuesday\u2019s idli.'},
     {t:'8:30 pm', d:'<b>Set curd.</b> Boil 1 litre of milk, cool it to lukewarm, stir in 2 tbsp of curd and keep it covered overnight.'},
     {t:'Tonight', d:'Wash the cucumbers, carrot and cabbage. Put the apple where you will see it at 4 pm tomorrow.'}
   ], foot:'Grind the green gram at 5:15 tomorrow morning — thick, no fermenting.'}
@@ -607,7 +602,7 @@ const FINISH = {head:'the finish line', tasks:[
 ], foot:'Nothing to soak tonight. That is the whole ten days.'};
 
 const SCHEDULE = [
-  {n:0,  key:'prep', date:'20 Sep', shop:BIG_SHOP},
+  {n:0,  key:'prep', date:'20 Sep'},
   {n:1,  key:'mon', date:'21 Sep'},
   {n:2,  key:'tue', date:'22 Sep'},
   {n:3,  key:'wed', date:'23 Sep'},
@@ -664,11 +659,9 @@ function slotKeys(e, si){
 function nightKeys(e){ return nightOf(e).tasks.map((_,i)=>K(e,'n'+i)); }
 /* what must be in the house by tomorrow morning — Day 0 carries the whole pantry */
 function shopFor(e){
-  if(e.shop) return e.shop;
   const nx = sched().find(x=>x.n === e.n + 1);
   if(!nx) return null;
-  const b = plan().days[nx.key].buy;
-  return {veg:b.veg, dairy:b.dairy};
+  return plan().days[nx.key].buy;   /* exactly what tomorrow needs, nothing else */
 }
 function buyKeys(e){
   const b = shopFor(e); if(!b) return [];
@@ -796,7 +789,7 @@ function renderDay(){
     '<span class="band"></span><span class="tick" style="--p:'+pct(tk)+'"></span>'+
     '<span class="m-t">'+(isPrep?'START':isLast?'AFTER':'TONIGHT')+'</span>'+
     '<span class="m-n">'+(isPrep?'Get set for Day 1':isLast?'After the detox':'Get ready for tomorrow')+'</span>'+
-    '<span class="m-c">'+(bk.length?bk.length+' to have in · ':'')+nk.length+' to do</span></button>');
+    '<span class="m-c">'+(bk.length ? bk.length+' to get · '+nk.length+' to prep' : nk.length+' steps')+'</span></button>');
 
   const ks = dayKeys(e);
   document.getElementById('dayBody').innerHTML =
@@ -852,7 +845,7 @@ function renderMeal(){
         .filter(g=>b[g[0]] && b[g[0]].length);
       const total = groups.reduce((a,g)=>a+b[g[0]].length,0);
       const body = groups.map(g=>'<div class="buycol"><span class="eyebrow">'+g[1]+'</span>'+col(b[g[0]], g[2])+'</div>').join('');
-      folds += foldHTML('shop', isPrep ? 'The big shop' : 'Have in by morning', total+' items', body, allDone(buyKeys(e)));
+      folds += foldHTML('shop', 'Have in by morning', total+' items', body, allDone(buyKeys(e)));
     }
     folds += foldHTML('prep', isPrep ? 'Soak & set tonight' : (shopFor(e) ? 'Soak & set tonight' : 'What happens next'),
       n.tasks.length+' steps',
