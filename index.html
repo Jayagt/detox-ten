@@ -499,7 +499,7 @@ D.fri = {
   ],
   night:{head:'Saturday — a grain day', tasks:[
     {t:'⚑ 7:00 pm', d:'<b>Sprouts should be ready.</b> Rinse, drain well and refrigerate them in a box for the morning avalakki.', flag:true},
-    {t:'7:30 pm', d:'Soak ¾ cup rajmudi rice. Separately soak ¼ cup rice + ¼ cup moong dal for the pongal.'},
+    {t:'7:30 pm', d:'Soak ¾ cup rajmudi rice for tomorrow\u2019s lunch.'},
     {t:'8:00 pm', d:'Soak 2 tbsp moong dal for the kosumbari — or leave it to 10 am tomorrow, it only needs two hours.'},
     {t:'8:30 pm', d:'Set curd — a cup at lunch and a cup of raita at dinner.'},
     {t:'Keep out', d:'Thick poha, papaya, broccoli. <b>Do not soak the poha overnight</b> — five minutes in the morning only.'}
@@ -510,7 +510,7 @@ D.sat = {
   name:'Saturday', wd:'SAT', type:'g',
   buy:{
     veg:['Beetroot — 1','Carrot — 3','Cucumber — 1','Broccoli — 1','Beans — 200 g','Papaya — 1 small','Mixed vegetables for sambar — no potato','Tomato — 3','Onion — 2','Curry leaves, lemon'],
-    pantry:['Thick poha / avalakki — 1 cup','Rajmudi rice — ¾ cup · soak tonight','Rice + moong dal for pongal · soak tonight','Moong dal — 2 tbsp for kosumbari','Almonds — 6','Chia seeds','Pepper and jeera for the pongal'],
+    pantry:['Thick poha / avalakki — 1 cup','Rajmudi rice — ¾ cup · soak tonight','Rice and moong dal for the pongal','Moong dal — 2 tbsp for kosumbari','Almonds — 6','Chia seeds','Pepper and jeera for the pongal'],
     dairy:['Milk — 1 L, to set tonight’s curd','Curd from last night — lunch and the raita']
   },
   slots:[
@@ -532,7 +532,7 @@ D.sat = {
     {t:'2:00 pm', label:'Tea', do:[{t:'2:00 pm', d:'Herbal, green or black.'}], eat:[{n:'Herbal tea / green tea / black coffee', q:'1 cup'}]},
     {t:'4:00 pm', label:'Fruit', do:[{t:'4:00 pm', d:'Cut the papaya. On its own.'}], eat:[{n:'Papaya', q:'1 bowl'}]},
     {t:'6:00 pm', label:'Dinner', do:[
-      {t:'5:15 pm', d:'Pongal from the rice and moong dal soaked last night — cook it soft with pepper and jeera. <b>Measure 100 g.</b>'},
+      {t:'5:15 pm', d:'Make the pongal — rice and moong dal cooked soft with pepper and jeera. No soaking needed. <b>Measure 100 g.</b>'},
       {t:'5:30 pm', d:'Steam broccoli, beans and carrot for 8 minutes.'},
       {t:'5:45 pm', d:'Vegetable raita from the curd.'}
     ], eat:[{n:'Steamed broccoli, beans & carrot', q:''},{n:'Pongal', q:'100 g'},{n:'Vegetable raita', q:'1 cup'}]},
@@ -637,7 +637,7 @@ const PLANS = [
    STATE
    ============================================================ */
 const STORE = 'detox-ten-v5';
-let state = {checks:{}, view:'plans', plan:'detox', day:0, slot:null, open:'prep', theme:null};
+let state = {checks:{}, view:'plans', plan:'detox', day:0, slot:null, open:null, theme:null};
 try{ const raw = localStorage.getItem(STORE); if(raw) state = Object.assign(state, JSON.parse(raw)); }catch(e){}
 function save(){ try{ localStorage.setItem(STORE, JSON.stringify(state)); }catch(e){} }
 const ck = k => !!state.checks[k];
@@ -819,7 +819,7 @@ function renderDay(){
   document.getElementById('mealGrid').addEventListener('click', ev=>{
     const b = ev.target.closest('.k.meal'); if(!b) return;
     state.slot = (b.dataset.s === 'tonight') ? 'tonight' : Number(b.dataset.s);
-    state.open = 'prep';
+    state.open = null;
     go('meal');
   });
 }
@@ -941,7 +941,7 @@ function renderMeal(){
 
   const step = d => {
     const it = seq[at + d]; if(!it) return;
-    state.day = it.n; state.slot = it.slot; state.open = 'prep'; save();
+    state.day = it.n; state.slot = it.slot; state.open = null; save();
     renderMeal(); updateNav(); window.scrollTo(0,0);
   };
   const pv = document.getElementById('pnPrev'), nx = document.getElementById('pnNext');
